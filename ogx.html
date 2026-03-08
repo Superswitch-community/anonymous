@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Anonymous Messages</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+
+<div class="max-w-2xl mx-auto p-6">
+
+<h1 class="text-3xl font-bold text-center mb-8">
+📥 Anonymous Messages
+</h1>
+
+<div id="messages" class="space-y-6"></div>
+
+</div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDpMSZMpNU2ze8Hz4VDDcWOoYurMif42KE",
+    authDomain: "anonymous-database-f33fc.firebaseapp.com",
+    projectId: "anonymous-database-f33fc",
+    storageBucket: "anonymous-database-f33fc.firebasestorage.app",
+    messagingSenderId: "60228460009",
+    appId: "1:60228460009:web:87109dba2accd4fc533f78",
+    measurementId: "G-TCR7XFDSNL"
+  };
+
+
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+async function loadMessages(){
+
+const q = query(collection(db,"messages"),orderBy("created","desc"));
+
+const snapshot = await getDocs(q);
+
+const container = document.getElementById("messages");
+
+snapshot.forEach(doc=>{
+
+const data = doc.data();
+
+const date = new Date(data.created).toLocaleString();
+
+container.innerHTML += `
+
+<div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
+
+<div class="flex items-center justify-between mb-4">
+
+<div class="flex items-center gap-3">
+
+<div class="w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center text-white font-bold">
+?
+</div>
+
+<div>
+<p class="font-semibold text-gray-700">Anonymous</p>
+<p class="text-xs text-gray-400">${date}</p>
+</div>
+
+</div>
+
+</div>
+
+<p class="text-gray-800 text-lg leading-relaxed">
+${data.text}
+</p>
+
+</div>
+
+`;
+
+});
+
+}
+
+loadMessages();
+
+</script>
+
+</body>
+</html>
