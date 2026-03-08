@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Send Anonymous Message</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-gradient-to-br from-purple-600 via-indigo-600 to-pink-500 min-h-screen flex items-center justify-center p-6">
+
+<div class="bg-white w-full max-w-md rounded-2xl shadow-2xl p-8">
+
+<h1 class="text-2xl font-bold text-center mb-2">
+Send Anonymous Message 💬
+</h1>
+
+<p class="text-center text-gray-500 mb-6">
+No one will know it's you 👀
+</p>
+
+<textarea
+id="message"
+placeholder="Type your message..."
+class="w-full border rounded-xl p-4 focus:ring-2 focus:ring-purple-500 outline-none"
+rows="4"
+></textarea>
+
+<button
+id="sendBtn"
+onclick="sendMessage()"
+class="mt-5 w-full bg-purple-600 text-white py-3 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-purple-700 transition">
+
+<span id="btnText">Send Message</span>
+
+<svg id="loader" class="animate-spin hidden h-5 w-5 text-white"
+xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+<circle class="opacity-25" cx="12" cy="12" r="10"
+stroke="currentColor" stroke-width="4"></circle>
+<path class="opacity-75" fill="currentColor"
+d="M4 12a8 8 0 018-8v8z"></path>
+</svg>
+
+</button>
+
+</div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDpMSZMpNU2ze8Hz4VDDcWOoYurMif42KE",
+    authDomain: "anonymous-database-f33fc.firebaseapp.com",
+    projectId: "anonymous-database-f33fc",
+    storageBucket: "anonymous-database-f33fc.firebasestorage.app",
+    messagingSenderId: "60228460009",
+    appId: "1:60228460009:web:87109dba2accd4fc533f78",
+    measurementId: "G-TCR7XFDSNL"
+  };
+
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+window.sendMessage = async () => {
+
+const message = document.getElementById("message").value.trim();
+
+if(message === ""){
+alert("Please type a message");
+return;
+}
+
+const btnText = document.getElementById("btnText");
+const loader = document.getElementById("loader");
+
+btnText.innerText = "Sending...";
+loader.classList.remove("hidden");
+
+try{
+
+await addDoc(collection(db,"messages"),{
+text: message,
+created: Date.now()
+});
+
+btnText.innerText = "Sent ✓";
+loader.classList.add("hidden");
+
+document.getElementById("message").value="";
+
+setTimeout(()=>{
+btnText.innerText="Send Message";
+},3000);
+
+}
+catch(err){
+alert("Error sending message");
+console.log(err);
+}
+
+}
+
+</script>
+
+</body>
+</html>
