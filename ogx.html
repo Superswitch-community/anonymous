@@ -93,6 +93,18 @@ ${data.text}
 
 }
 
+
+  // Load messages when document becomes visible
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') {
+    loadMessages();
+  }
+});
+
+// Load messages when page is fully loaded
+document.addEventListener('DOMContentLoaded', loadMessages);
+
+
 loadMessages();
 
 </script>
