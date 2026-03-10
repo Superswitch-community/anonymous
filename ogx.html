@@ -103,7 +103,9 @@ document.addEventListener('visibilitychange', () => {
 });
 
 // Load messages when page is fully loaded
-document.addEventListener('DOMContentLoaded', loadMessages);
+document.addEventListener('DOMContentLoaded', () => {
+  loadMessages();
+});
 
 </script>
 
