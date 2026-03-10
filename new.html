@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LuxuryScents | Premium Perfumes</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  /* Scroll animations */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s ease-out;
+  }
+  .fade-up.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+
+<!-- NAVIGATION - PREMIUM GLASS EFFECT -->
+<nav class="fixed w-full z-50 backdrop-blur-md bg-white/10 transition-all duration-500" id="navbar">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-yellow-400 drop-shadow-lg">LuxuryScents</h1>
+    
+    <!-- MENU DESKTOP -->
+    <div class="hidden md:flex space-x-6 items-center">
+      <a href="#" class="relative group font-semibold text-white transition hover:text-yellow-400">
+        Home
+        <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-yellow-400 transition-all group-hover:w-full"></span>
+      </a>
+      <a href="#products" class="relative group font-semibold text-white transition hover:text-yellow-400">
+        Perfumes
+        <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-yellow-400 transition-all group-hover:w-full"></span>
+      </a>
+      <a href="#about" class="relative group font-semibold text-white transition hover:text-yellow-400">
+        About
+        <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-yellow-400 transition-all group-hover:w-full"></span>
+      </a>
+      <a href="#contact" class="relative group font-semibold text-white transition hover:text-yellow-400">
+        Contact
+        <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-yellow-400 transition-all group-hover:w-full"></span>
+      </a>
+      <a href="#products" class="ml-4 bg-yellow-400 text-black font-semibold px-5 py-2 rounded-full hover:bg-yellow-500 transition shadow-lg">Shop Now</a>
+    </div>
+    
+    <!-- MOBILE MENU BUTTON -->
+    <div class="md:hidden flex items-center">
+      <button id="menu-btn" class="text-white focus:outline-none">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu" class="md:hidden bg-gray-900/90 w-full absolute top-full left-0 hidden flex-col items-center py-4 space-y-4 backdrop-blur-md">
+    <a href="#" class="text-white font-semibold hover:text-yellow-400 transition">Home</a>
+    <a href="#products" class="text-white font-semibold hover:text-yellow-400 transition">Perfumes</a>
+    <a href="#about" class="text-white font-semibold hover:text-yellow-400 transition">About</a>
+    <a href="#contact" class="text-white font-semibold hover:text-yellow-400 transition">Contact</a>
+    <a href="#products" class="bg-yellow-400 text-black font-semibold px-6 py-2 rounded-full hover:bg-yellow-500 transition shadow-lg">Shop Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="relative bg-cover bg-center h-screen" style="background-image: url('https://images.unsplash.com/photo-1594035910387-fea47794261f');">
+  <div class="absolute inset-0 bg-black/60 flex items-center justify-center">
+    <div class="text-center px-6 fade-up">
+      <h2 class="text-5xl md:text-6xl font-bold mb-6">Discover Your Signature Scent</h2>
+      <p class="max-w-lg mx-auto mb-8 text-gray-200">LuxuryScents offers premium perfumes crafted to leave a lasting impression. Find the fragrance that defines your personality and elegance.</p>
+      <a href="#products" class="bg-yellow-400 text-black font-semibold px-8 py-4 rounded-full hover:bg-yellow-500 transition shadow-lg">Shop Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products" class="py-20 max-w-7xl mx-auto px-6">
+  <h2 class="text-4xl font-bold text-center mb-12 fade-up">Featured Perfumes</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+    
+    <div class="bg-gray-800 rounded-xl overflow-hidden hover:scale-105 transition transform fade-up">
+      <img src="https://images.unsplash.com/photo-1587017539504-67cfbddac569" class="w-full h-72 object-cover">
+      <div class="p-6 text-center">
+        <h3 class="text-xl font-semibold mb-2">Royal Essence</h3>
+        <p class="text-gray-300 mb-4">Warm woody fragrance with deep luxurious notes.</p>
+        <button class="bg-yellow-400 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-500 transition">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="bg-gray-800 rounded-xl overflow-hidden hover:scale-105 transition transform fade-up">
+      <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de" class="w-full h-72 object-cover">
+      <div class="p-6 text-center">
+        <h3 class="text-xl font-semibold mb-2">Midnight Bloom</h3>
+        <p class="text-gray-300 mb-4">Floral scent designed for elegance and romance.</p>
+        <button class="bg-yellow-400 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-500 transition">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="bg-gray-800 rounded-xl overflow-hidden hover:scale-105 transition transform fade-up">
+      <img src="https://images.unsplash.com/photo-1595429035839-c99c298ffdde" class="w-full h-72 object-cover">
+      <div class="p-6 text-center">
+        <h3 class="text-xl font-semibold mb-2">Golden Aura</h3>
+        <p class="text-gray-300 mb-4">A bold perfume with fresh citrus and amber notes.</p>
+        <button class="bg-yellow-400 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-500 transition">Buy Now</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-20 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center fade-up">
+  <img src="https://images.unsplash.com/photo-1617897711385-3f1e9465d9b6" class="rounded-xl w-full">
+  <div>
+    <h2 class="text-4xl font-bold mb-6">About Our Perfumes</h2>
+    <p class="text-gray-300 mb-4">At LuxuryScents we believe fragrance is a powerful expression of identity. Our perfumes are carefully crafted using premium ingredients to ensure long-lasting scent, elegance, and unforgettable experiences.</p>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="py-20 bg-gray-800 fade-up">
+  <h2 class="text-4xl font-bold text-center mb-12">Why Choose Us</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto px-6 text-center">
+    <div class="bg-gray-900 p-8 rounded-xl fade-up">
+      <h3 class="text-xl font-semibold mb-2">Premium Quality</h3>
+      <p class="text-gray-400">High quality ingredients for long lasting fragrance.</p>
+    </div>
+    <div class="bg-gray-900 p--8 rounded-xl fade-up">
+      <h3 class="text-xl font-semibold mb-2">Luxury Packaging</h3>
+      <p class="text-gray-400">Elegant bottles designed for sophistication.</p>
+    </div>
+    <div class="bg-gray-900 p-8 rounded-xl fade-up">
+      <h3 class="text-xl font-semibold mb-2">Fast Delivery</h3>
+      <p class="text-gray-400">Quick and safe shipping to your doorstep.</p>
+    </div>
+    <div class="bg-gray-900 p-8 rounded-xl fade-up">
+      <h3 class="text-xl font-semibold mb-2">Affordable Luxury</h3>
+      <p class="text-gray-400">Experience luxury perfumes at great prices.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="py-20 max-w-7xl mx-auto px-6 text-center fade-up">
+  <h2 class="text-4xl font-bold mb-12">What Customers Say</h2>
+  <div class="space-y-8">
+    <div class="bg-gray-800 p-8 rounded-xl max-w-xl mx-auto fade-up">
+      <p class="text-gray-300 mb-2">"Absolutely amazing scent! I get compliments every time I wear it."</p>
+      <b>- Sarah M.</b>
+    </div>
+    <div class="bg-gray-800 p-8 rounded-xl max-w-xl mx-auto fade-up">
+      <p class="text-gray-300 mb-2">"LuxuryScents perfumes last all day. Highly recommended."</p>
+      <b>- David K.</b>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-20 bg-gradient-to-r from-yellow-400 to-yellow-300 text-gray-900 text-center fade-up">
+  <h2 class="text-4xl font-bold mb-6">Find Your Perfect Fragrance Today</h2>
+  <p class="mb-8">Browse our exclusive collection of premium perfumes.</p>
+  <a href="#products" class="bg-gray-900 text-yellow-400 font-semibold px-8 py-4 rounded-full hover:bg-gray-800 transition shadow-lg">Shop Perfumes</a>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact" class="py-8 bg-gray-800 text-center text-gray-400 fade-up">
+  <p>© 2026 LuxuryScents. All Rights Reserved.</p>
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+  // MOBILE MENU TOGGLE
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  // NAVBAR SCROLL EFFECT
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 50){
+      navbar.classList.add('bg-gray-900/90', 'shadow-2xl', 'backdrop-blur-md');
+      navbar.classList.remove('bg-white/10');
+    } else {
+      navbar.classList.remove('bg-gray-900/90', 'shadow-2xl');
+      navbar.classList.add('bg-white/10');
+    }
+  });
+
+  // FADE-UP SCROLL ANIMATION
+  const faders = document.querySelectorAll('.fade-up');
+  const appearOptions = { threshold: 0.2 };
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, appearOptions);
+
+  faders.forEach(fader => appearOnScroll.observe(fader));
+</script>
+
+</body>
+  </html>
