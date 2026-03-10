@@ -97,6 +97,7 @@ ${data.text}
   // Load messages when document becomes visible
 document.addEventListener('visibilitychange', () => {
   if (document.visibilityState === 'visible') {
+    location.reload():
     loadMessages();
   }
 });
