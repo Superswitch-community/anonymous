@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notification Test</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-gray-900 flex items-center justify-center min-h-screen text-white">
+
+<div class="bg-gray-800 p-8 rounded-2xl shadow-xl text-center max-w-md">
+
+<h1 class="text-2xl font-bold mb-4">Website Notification Test</h1>
+
+<p class="text-gray-300 mb-6">
+A notification will appear automatically after 5 seconds.
+</p>
+
+<button onclick="sendNotification()"
+class="bg-green-500 hover:bg-green-600 px-6 py-3 rounded-lg font-semibold transition">
+Send Notification Now
+</button>
+
+</div>
+
+<script>
+
+// request permission
+if ("Notification" in window) {
+  Notification.requestPermission().then(permission => {
+    console.log("Notification permission:", permission);
+  });
+}
+
+
+// auto notification after 5 seconds
+setTimeout(() => {
+
+  if (Notification.permission === "granted") {
+
+    new Notification("Website Update", {
+      body: "Please update your website features.",
+      icon: "https://cdn-icons-png.flaticon.com/512/1827/1827349.png"
+    });
+
+  }
+
+}, 5000);
+
+
+// manual notification
+function sendNotification(){
+
+  if(Notification.permission === "granted"){
+
+    new Notification("Manual Notification", {
+      body: "This notification came from your website.",
+      icon: "https://cdn-icons-png.flaticon.com/512/1827/1827349.png"
+    });
+
+  } else {
+
+    alert("Please allow notifications first.");
+
+  }
+
+}
+
+</script>
+
+</body>
+  </html>
